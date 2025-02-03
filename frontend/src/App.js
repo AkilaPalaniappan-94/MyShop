@@ -1,13 +1,22 @@
-import logo from './logo.svg';
+
 import './App.css';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
+import HomeScreen from './screens/HomeScreen';
+import { Container } from 'react-bootstrap';
 
 const App=()=> {
   return (
     <>
+    
     <Header/>
-    <h1>Welcome</h1>
+    <main>
+    <Container>
+    
+    <HomeScreen/>
+    
+    </Container>
+    </main>
     <Footer/>
     </>
   );
