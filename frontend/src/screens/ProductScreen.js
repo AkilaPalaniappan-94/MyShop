@@ -19,7 +19,7 @@ const product=products.find(p=>p._id===params.id);
             
             </Col>
             <Col md={3}>
-            <ListGroup>
+            <ListGroup variant='flush'>
                 <ListGroup.Item><strong>{product.name}</strong></ListGroup.Item>
                 <ListGroup.Item>{product.category}</ListGroup.Item>
                 <ListGroup.Item>${product.price}</ListGroup.Item>
@@ -30,7 +30,7 @@ const product=products.find(p=>p._id===params.id);
             </Col>
             <Col md={3}>
             <Card>
-            <ListGroup variant='flush'>
+            <ListGroup>
                 <ListGroupItem>
                 <Row>
                     <Col>Price:</Col>

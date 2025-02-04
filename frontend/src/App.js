@@ -21,8 +21,9 @@ const App=()=> {
     
     </Container>
     </main>
-    <Footer/>
     </Router>
+    <Footer/>
+    
     </>
   );
 }

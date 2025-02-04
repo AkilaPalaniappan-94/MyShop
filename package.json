@@ -1,0 +1,23 @@
+{
+  "name": "myshop",
+  "version": "1.0.0",
+  "description": "Shopping Cart",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AkilaPalaniappan-94/MyShop.git"
+  },
+  "author": "Akila Palaniappan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AkilaPalaniappan-94/MyShop/issues"
+  },
+  "homepage": "https://github.com/AkilaPalaniappan-94/MyShop#readme",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
