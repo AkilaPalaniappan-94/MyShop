@@ -7,9 +7,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node backend/server.js",
-    "data:import" :"node backend/seeder.js",
-    "data:destroy" : "node backend/seeder.js -d" 
-
+    "server": "nodemon backend/server.js",
+    "client": "npm start --prefix frontend",
+    "shop": "concurrently \"npm run server\" \"npm run client\" ",
+    "data:import": "node backend/seeder.js",
+    "data:destroy": "node backend/seeder.js -d"
   },
   "repository": {
     "type": "git",
@@ -23,8 +25,11 @@
   "homepage": "https://github.com/AkilaPalaniappan-94/MyShop#readme",
   "dependencies": {
     "bcryptjs": "^3.0.1",
+    "concurrently": "^9.1.2",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
-    "mongoose": "^8.10.1"
+    "express-async-handler": "^1.2.0",
+    "mongoose": "^8.10.1",
+    "nodemon": "^3.1.9"
   }
 }
