@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {  useLocation, useParams } from 'react-router-dom'
-import { addToCart } from '../actions/cartActions'
-import {Row,Col,ListGroup,ListGroupItem, Image} from 'react-bootstrap'
+import { addToCart, removeFromCart } from '../actions/cartActions'
+import {Row,Col,ListGroup, Image, Button,Form} from 'react-bootstrap'
 import Message from '../Components/Message'
 import { Link } from 'react-router-dom'
 
@@ -11,8 +11,8 @@ const CartScreen = () => {
     const dispatch=useDispatch()
     const params=useParams()
     const productId=params.id
-
-    const qty=location.search.qty ? Number((location.search.split("="))[1]):1
+    console.log("in cartScreen qty"+ location.search)
+    const qty=location.search ? Number((location.search.split("="))[1]):1
     useEffect(()=>{
         console.log("use Effect")
         dispatch(addToCart(productId,qty))
@@ -24,56 +24,64 @@ const CartScreen = () => {
     const {cartItems}=cart
     console.log("in cart screen"+ cartItems)
     console.log("cartItems Length"+cartItems.length)
+
+    const remove=(prodId)=>{
+      dispatch(removeFromCart(prodId))
+    }
     
   return (
     <>
-    {
-        cartItems.map(
-            item=>
-            
-             <Row>
-        <Col >
-        {cartItems.length === 0 ?
+   <Row>
+      <Col md={8}>
+        <h1>Shopping Cart</h1>
+    
+    {cartItems.length ===0 ?
         (<Message>Cart is Empty!!!<Link to='/'>continue Shopping</Link></Message>
             
-        ):
-
-        (
-            <ListGroup >{
+        ):(
+            <ListGroup variant="flush">{
                 cartItems.map(item=>(
-                    <ListGroupItem key={item.product}>
-                            <Row>
+                  <ListGroup.Item key={item.product}>
+                    <Row>
+                      
                                 <Col md={2}>
                                 <Image src={item.image} alt={item.name} fluid rounded ></Image></Col>
                                 <Col md={4}>
                                 <Link to={`/product/${item.product}`}>{item.name}</Link>
 
                                 </Col>
-                                <Col md={4}>
+                                <Col md={2}>
                                 ${item.price}
                                 </Col>
+                                <Col>
+                                <Form.Control as='select' value={item.qty} onChange={(e)=>dispatch(addToCart(item.product,Number(e.target.value)))}>
+                                    {
+                                      [...Array(item.countInStock).keys()].map(x=>(
+                                        <option key={x+1} value={x+1}>{x+1}</option>
+                                      ))
+                                    }
 
+                                </Form.Control>
                                 
-                            </Row>
-
-
-                    </ListGroupItem>
+                                </Col>
+                                <Col md={2}>
+                                <Button  onClick={()=>remove(item.product)}><i className="fa-solid fa-trash"></i></Button>
+                                </Col>
+                                </Row></ListGroup.Item>
                 ))
             }
       
     </ListGroup>
-        )
-
-            }
+        )}
         </Col>
-    </Row>
-
-            
-        )
+        </Row>
+          </>
+      )
     }
+       
+   
 
-    </>
-  )
-}
+ 
+
 
 export default CartScreen

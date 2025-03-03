@@ -10,6 +10,8 @@ export const cartReducer=(state={cartItems:[]},action)=>{
            
             if (exist_item){
                 console.log("item exists in cart")
+                console.log("item.qty"+item.qty)
+                console.log("existitem.qty"+exist_item.qty)
                 item.qty=exist_item.qty+item.qty
                 return{
                     ...state,
