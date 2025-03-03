@@ -24,7 +24,7 @@ const{loading,products,error}=productList
        :(<Row>
        
         {products.map( p=>(
-        <Col sm={12} lg={4} md={6} xl={3}>
+        <Col key={p._id} sm={12} lg={4} md={6} xl={3}>
                 <Product product={p}></Product>
                 
                 </Col>

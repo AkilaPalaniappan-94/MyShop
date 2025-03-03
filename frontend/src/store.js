@@ -13,7 +13,7 @@ const carItemsFromLocalStorage=localStorage.getItem('cartItems') ? JSON.parse(lo
 console.log(carItemsFromLocalStorage)
 const initialState={
     cart:{
-        carItems:carItemsFromLocalStorage
+        cartItems:carItemsFromLocalStorage
     }
 }
 
