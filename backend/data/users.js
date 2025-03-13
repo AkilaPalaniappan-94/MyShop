@@ -8,11 +8,11 @@ password:bcrypt.hashSync('123456'),
 isAdmin:true
 },
 {name:"Ak1",
-    email:"ak@gmail.com",
+    email:"lord@gmail.com",
     password:bcrypt.hashSync('123456'),
     },
     {name:"Ak2",
-        email:"ak@gmail.com",
+        email:"kal@gmail.com",
         password:bcrypt.hashSync('123456'),
         }
 ]
