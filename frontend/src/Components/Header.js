@@ -19,7 +19,7 @@ const Header = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-            <Nav.Link href="/"><i className="fa-solid fa-cart-plus"></i> Cart</Nav.Link>
+            <Nav.Link href="/cart"><i className="fa-solid fa-cart-plus"></i> Cart</Nav.Link>
             {userInfo?(
               <NavDropdown title={userInfo.name} id="username">
                 <NavDropdown.Item as={Link} to='/profile'>Profile</NavDropdown.Item>

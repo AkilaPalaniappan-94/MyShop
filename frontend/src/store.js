@@ -13,9 +13,11 @@ const rootReducer=combineReducers({
 
 const carItemsFromLocalStorage=localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) :[]
 const userInfoFromLocalStorage=localStorage.getItem('userInfo')?JSON.parse(localStorage.getItem('userInfo')):null
-
+const sAddressFromLocalStorage=localStorage.getItem('sAddress')?JSON.parse(localStorage.getItem('sAddress')):{}
 const initialState={
-    cart:{cartItems:carItemsFromLocalStorage},
+    cart:{cartItems:carItemsFromLocalStorage,
+        shippingAddress:sAddressFromLocalStorage
+    },
     userLogin:{userInfo:userInfoFromLocalStorage}
 }
 
