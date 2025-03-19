@@ -8,6 +8,7 @@ import Message from "../Components/Message";
 import Loader from "../Components/Loader";
 import { loginUser } from "../actions/userActions";
 import FormContainer from "../Components/FormContainer";
+import CheckOutSteps from "../Components/CheckOutSteps";
 const LoginScreen = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -34,6 +35,7 @@ const LoginScreen = () => {
   return (
     <>
       <FormContainer>
+        <CheckOutSteps step1></CheckOutSteps>
         <h1>SignIn</h1>
         {error ? <Message variant="danger">{error}</Message> : 
         loading?

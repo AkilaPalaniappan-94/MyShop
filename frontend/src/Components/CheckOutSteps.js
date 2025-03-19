@@ -1,10 +1,28 @@
 import React from 'react'
-import nav from'react-bootstrap'
-import Link from 'react-router-dom'
+import {Nav} from'react-bootstrap'
+import {Link} from 'react-router-dom'
 
-const CheckOutSteps = () => {
+
+const CheckOutSteps = ({step1,step2,step3,step4}) => {
   return (
     <>
+    <Nav className="justify-content-center">
+        <Nav.Item>{step1? <Nav.Link  as={Link} href="/login">Login</Nav.Link>: <Nav.Link disabled>Login</Nav.Link>}
+         
+        </Nav.Item>
+        
+        <Nav.Item>{step2? <Nav.Link as={Link} href="/shipping">Shipping</Nav.Link>: <Nav.Link disabled>Shipping</Nav.Link>}
+         
+        </Nav.Item>
+
+        <Nav.Item>{step3? <Nav.Link as={Link} href="/payment">Payment</Nav.Link>: <Nav.Link disabled>Payment</Nav.Link>}
+         
+        </Nav.Item>
+
+        <Nav.Item>{step4? <Nav.Link as={Link} href="/placeOrder">Place Order</Nav.Link>: <Nav.Link disabled>Place order</Nav.Link>}
+         
+        </Nav.Item>
+      </Nav>
 
 
     
